@@ -59,7 +59,7 @@ def abstractive_summary(text: str) -> str:
 
 def sumy_summary(text: str, num_sentences: int = 5) -> str:
     """Generate extractive summary using Sumy (Luhn Algorithm)"""
-    parser = PlaintextParser.from_string(text, Tokenizer("indonesian"))
+    parser = PlaintextParser.from_string(text, Tokenizer("english"))
     summarizer = LuhnSummarizer()
     summary = summarizer(parser.document, num_sentences)
     return ' '.join(str(sentence) for sentence in summary)
